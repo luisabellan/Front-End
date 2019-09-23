@@ -34,7 +34,7 @@
   justify-content: space-evenly;
   width: 20%;
   text-align: center;
-  font-size: 16pt;
+  font-size: 14pt;
   height: 100%;
 }
 
@@ -46,6 +46,8 @@
 a {
   text-decoration: none;
   font-family: 'Roboto';
+  font-weight: 900;
+  color: teal;
 }
 
 .link:hover {
