@@ -1,10 +1,26 @@
 
 const initialUserState = {
+    // user:{
+    //     user:'',
+    //     id:'',
+    //     searches:[],
+    //     savedBooks:[],
+    // }
+
+    //Alternative Data structure
     user:{
-        user:'',
+        username:'',
         id:'',
-        searches:[],
-        savedBooks:[],
+        searches:[
+            {search:'', searchId:'', returnedBooks:[]},
+        ],
+        savedBooks:[
+            {searchId:'',
+            title:'',
+            author:'',
+            read:false,
+            }
+        ]
     }
 }
 
