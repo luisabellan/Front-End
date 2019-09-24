@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
-export const Register = () => {
+export const Register = (props) => {
 const [ registration, setRegistration] = useState({ username: '', password: '' });
 
     
@@ -16,9 +16,12 @@ const [ registration, setRegistration] = useState({ username: '', password: '' }
     const handleRegister = e => {
         e.preventDefault();
         axiosWithAuth().post('/register', registration).then(res => {
-            console.log(res.data.token);
+            console.log(res.data.payload);
+            console.log(res);
+            console.log(res.data);
             localStorage.setItem('token', res.data.token)
             console.log(res.data.token);
+            props.history.push('/home');
         }).catch(err => {
             console.log('error', err.response)
         })
