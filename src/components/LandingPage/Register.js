@@ -1,17 +1,28 @@
-import React from 'react';
-import { connect } from "react-redux";
+import React, { useState } from 'react';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-export const Register = (props) => {
+export const Register = () => {
+const [ registration, setRegistration] = useState({ username: '', password: '' });
+
     
-    const handleUsername = (e) => {
-        e.preventDefault();
-        console.log(e.target.value)
-    }
+      const handleChange = e => {
+          e.preventDefault();
+        setRegistration({
+            ...registration, [e.target.name]: e.target.value })
+            console.log(registration);
+      };
+    
 
-    const handleRegister = (e) => {
+    const handleRegister = e => {
         e.preventDefault();
-        console.log('registration form successfully sent!')
-        props.history.push('/home');
+        axiosWithAuth().post('/register', registration).then(res => {
+            console.log(res.data.payload);
+            localStorage.setItem('token', res.data.payload)
+            console.log(res.data.payload);
+            props.history.push('/home');
+        }).catch(err => {
+            console.log('error', err.response)
+        })
     }
 
     return (
@@ -20,16 +31,16 @@ export const Register = (props) => {
             <input
             type='text'
             name='username'
-            value='username'
-            onChange={handleUsername}
+            value={registration.username}
+            onChange={handleChange}
             placeholder='username'
             >
             </input>
             <input
             type='password'
-            name='username'
-            value='username'
-            onChange={handleUsername}
+            name='password'
+            value={registration.password}
+            onChange={handleChange}
             placeholder='password'
             >
             </input>
@@ -38,14 +49,3 @@ export const Register = (props) => {
         </>
     )
 }
-
-const mapStateToProps = state => {
-    return {
-        state: state
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    {}
-    )(Register);
