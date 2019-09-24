@@ -16,8 +16,9 @@ const [ registration, setRegistration] = useState({ username: '', password: '' }
     const handleRegister = e => {
         e.preventDefault();
         axiosWithAuth().post('/register', registration).then(res => {
-            console.log(res);
+            console.log(res.data.payload);
             localStorage.setItem('token', res.data.payload)
+            console.log(res.data.payload);
         }).catch(err => {
             console.log('error', err.response)
         })
