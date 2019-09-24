@@ -13,6 +13,7 @@ const initialUserState = {
         id:'',
         descriptions:[
             {description:'', descriptionId:'', returnedBooks:[{
+                bookId:null,
                 descriptionId:'',
                 title:'',
                 author:'',
@@ -23,7 +24,8 @@ const initialUserState = {
             ]},
         ],
         savedBooks:[
-            {descriptionId:'',
+            {bookId:null,
+            descriptionId:'',
             title:'',
             author:'',
             isbn:null,
