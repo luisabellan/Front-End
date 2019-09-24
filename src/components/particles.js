@@ -21,7 +21,7 @@ const particles = {
       }
     },
     "opacity": {
-      "value": 0.5,
+      "value": 0.3,
       "random": false,
       "anim": {
         "enable": false,
@@ -44,7 +44,7 @@ const particles = {
       "enable": true,
       "distance": 300,
       "color": "#008080",
-      "opacity": 0.4,
+      "opacity": 0.3,
       "width": 2
     },
     "move": {
@@ -79,14 +79,14 @@ const particles = {
       "grab": {
         "distance": 800,
         "line_linked": {
-          "opacity": 1
+          "opacity": 0.3
         }
       },
       "bubble": {
         "distance": 800,
         "size": 80,
         "duration": 2,
-        "opacity": 0.8,
+        "opacity": 0.3,
         "speed": 3
       },
       "repulse": {

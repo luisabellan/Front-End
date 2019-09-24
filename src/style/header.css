@@ -57,9 +57,14 @@ a {
   background-color: teal;
   border-color: teal;
   color: white;
-  height: 44px;
+  height: 40px;
 }
 
 .link:focus {
   background-color: teal;
+  border-bottom: 1px solid teal;
+  background-color: teal;
+  border-color: teal;
+  color: white;
+  height: 40px;
 }
