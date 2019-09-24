@@ -6,9 +6,9 @@ export const axiosWithAuth = () => {
     const token = localStorage.getItem('token');
   
     return axios.create({
-      baseURL: 'https://better-reads-bw.herokuapp.com/api/auth',
+      baseURL: 'https://better-reads-bw.herokuapp.com/api/auth/',
       headers: {
-        Authorization: token
+        Authorization: token,
       }
     });
   };
