@@ -52,6 +52,10 @@ export const reducer = (state = initialUserState, action) => {
                 ...state,
                 user: [...state.user.descriptions], descriptions: [...state.user.descriptions, action.payload]
             }
+        case SEARCH_FAIL:
+            return {
+                ...state
+            }
         default:
             return state;
     }
