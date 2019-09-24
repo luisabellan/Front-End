@@ -11,6 +11,7 @@ export const Register = (props) => {
     const handleRegister = (e) => {
         e.preventDefault();
         console.log('registration form successfully sent!')
+        props.history.push('/home');
     }
 
     return (
