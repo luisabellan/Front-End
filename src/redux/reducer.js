@@ -11,14 +11,25 @@ const initialUserState = {
     user:{
         username:'',
         id:'',
-        searches:[
-            {search:'', searchId:'', returnedBooks:[]},
+        descriptions:[
+            {description:'', descriptionId:'', returnedBooks:[{
+                descriptionId:'',
+                title:'',
+                author:'',
+                isbn:null,
+                rating:'',
+                read:false,
+                saved:false}
+            ]},
         ],
         savedBooks:[
-            {searchId:'',
+            {descriptionId:'',
             title:'',
             author:'',
+            isbn:null,
+            rating:'',
             read:false,
+            saved:true
             }
         ]
     }
