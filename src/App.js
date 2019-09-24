@@ -10,25 +10,19 @@ import logo from './logo.svg';
 import './App.css';
 import PrivateRoute from './components/PrivateRoute';
 import { Register } from './components/Register';
-
+import Dashboard from './components/Home';
 
 function App() {
   return (
     <div className="App">
-    
+
       <Header></Header>
         <Particles params={particles}/>
       <Footer className="footer"></Footer>
-    
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Better Reads
-        </p>
-        <PrivateRoute exact path='/register' component={Register}/>
-        <Route exact path ='/' component={Register} />
-      </header>
 
+      <PrivateRoute exact path='/register' component={Register}/>
+      <Route exact path ='/' component={Register} />
+      <Route exact path ='/' component={Dashboard} />
     </div>
   );
 }

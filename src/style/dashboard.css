@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  width: 95%;
+  background: teal;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#35394a', endColorstr='#1f222e',GradientType=1 ); 
+  position: fixed;
+  align-self: center;
+  height: 72%;
+  border-radius: 16px;
+  opacity: 0.8;
+  box-shadow: 0.5px 2px 7px #282c34;
+}
+
+form {
+  float: left;
+  margin-top: 2%;
+  width: 60%;
+  align-self: center;
+  border-radius: 9px;
+  box-shadow: 0.5px 2px 7px #282c34;
+}
+
+form > .textbox {
+  outline: 0;
+  height: 52px;
+  width: 70%;
+  line-height: 42px;
+  padding: 0 16px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #212121;
+  border: 0;
+  float: left;
+  border-radius: 8px 0 0 8px;
+}
+
+form > .textbox:focus {
+  outline: 0;
+  background-color: #FFF;
+}
+
+form > .button {
+  outline: 0;
+  background: none;
+  background-color: rgba(38, 50, 56, 0.8);
+  float: left;
+  height: 52px;
+  width: 30%;
+  text-align: center;
+  line-height: 42px;
+  border: 0;
+  color: #FFF;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 16px;
+  text-rendering: auto;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-transition: background-color .4s ease;
+  transition: background-color .4s ease;
+  -webkit-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+form > .button:hover {
+  background-color: rgba(0, 150, 136, 0.8);
+}
