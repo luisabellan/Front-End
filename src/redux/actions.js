@@ -11,5 +11,4 @@ export const searchBooks = (description) => dispatch => {
     }).catch(err => {
         dispatch({ type: SEARCH_FAIL });
     });
-
 };

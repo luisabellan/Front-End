@@ -1,3 +1,4 @@
+import { SEARCHING_BOOKS, SEARCHED_BOOKS, SEARCH_FAIL } from './actions';
 
 const initialUserState = {
     // user:{
@@ -8,6 +9,7 @@ const initialUserState = {
     // }
 
     //Alternative Data structure
+    isSearching: false,
     user:{
         username:'',
         id:'',
@@ -39,6 +41,17 @@ const initialUserState = {
 
 export const reducer = (state = initialUserState, action) => {
     switch (action.type) {
+        case SEARCHING_BOOKS:
+            return {
+                isSearching: true,
+                ...state,                 
+            }
+        case SEARCHED_BOOKS:
+            return {
+                isSearching: false,
+                ...state,
+                user: [...state.user.descriptions], descriptions: [...state.user.descriptions, action.payload]
+            }
         default:
             return state;
     }
