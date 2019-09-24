@@ -9,7 +9,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#35394a', endColorstr='#1f222e',GradientType=1 ); 
   position: fixed;
   align-self: center;
-  height: 72%;
+  height: 77%;
   border-radius: 16px;
   opacity: 0.8;
   box-shadow: 0.5px 2px 7px #282c34;
@@ -22,6 +22,7 @@ form {
   align-self: center;
   border-radius: 9px;
   box-shadow: 0.5px 2px 7px #282c34;
+  margin-bottom: 2%;
 }
 
 form > .textbox {
@@ -70,8 +71,15 @@ form > .button {
   transition: background-color .4s ease;
   -webkit-border-radius: 0 4px 4px 0;
   border-radius: 0 4px 4px 0;
+  cursor: pointer;
 }
 
 form > .button:hover {
   background-color: rgba(0, 150, 136, 0.8);
+}
+
+.popular {
+  border-top: 1px solid #282c34;
+  width: 90%;
+  align-self: center;
 }
