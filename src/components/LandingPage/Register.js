@@ -19,6 +19,7 @@ const [ registration, setRegistration] = useState({ username: '', password: '' }
             console.log(res.data.payload);
             localStorage.setItem('token', res.data.payload)
             console.log(res.data.payload);
+            props.history.push('/home');
         }).catch(err => {
             console.log('error', err.response)
         })
