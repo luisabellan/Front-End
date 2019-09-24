@@ -9,6 +9,7 @@
   padding: 0;
   box-shadow: 0.5px 2px 7px #282c34;
   align-self: center;
+  height: 40px;
 }
 
 .logo {
@@ -22,20 +23,19 @@
 .nav-link {
   display: flex;
   flex-direction: row;
-  width: 50%;
+  width: 40%;
   justify-content: space-evenly;
   align-self: center;
-  justify-items: flex-start;
 }
 
 .link {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 20%;
+  width: 25%;
   text-align: center;
   font-size: 14pt;
-  height: 100%;
+  height: 40px;
 }
 
 .link-icon {
@@ -48,12 +48,18 @@ a {
   font-family: 'Roboto';
   font-weight: 900;
   color: teal;
+  padding-top: 1.2%;
+  margin-top: 0;
 }
 
 .link:hover {
   border-bottom: 1px solid teal;
+  background-color: teal;
+  border-color: teal;
+  color: white;
+  height: 44px;
 }
 
 .link:focus {
-  border-bottom: 1px solid teal;
+  background-color: teal;
 }
