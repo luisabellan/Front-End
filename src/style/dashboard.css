@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=monospace&display=swap');
 
 .dashboard {
   display: flex;
@@ -34,7 +34,16 @@ form > .textbox {
   color: #212121;
   border: 0;
   float: left;
+  font-size: 14pt;
+  font-weight: 900;
   border-radius: 8px 0 0 8px;
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    Menlo,
+    Courier,
+    monospace;
 }
 
 form > .textbox:focus {
