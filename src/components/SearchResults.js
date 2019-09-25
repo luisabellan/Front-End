@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { searchBooks } from '../redux/actions';
 
 
-const SearchResults = () => {
+const SearchResults = props => {
 
     return (
         <>
