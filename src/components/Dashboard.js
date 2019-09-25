@@ -54,9 +54,6 @@ function Dashboard(props){
 
   return(
     <div className="dashboard">  
-
-        <SearchResults onSubmit={findBooks} />
-
       <div className="popular">
         {
           books.length > 0 ?
@@ -122,8 +119,11 @@ function Dashboard(props){
           }
         </div>
       </div>
+      <SearchResults onSubmit={findBooks} />
     </div>
   );
 }
 
 export default Dashboard;
+
+

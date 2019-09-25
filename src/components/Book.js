@@ -28,13 +28,14 @@ const useStyles = makeStyles({
 });
 
 
-const Book = () => {
+const Book = (props) => {
 
     //Material UI
     const classes = useStyles();
 
     //props later
-    const book = { title: 'HP 1', author: 'Rowling', rating:'5 stars', isbn:123, descriptionId:0}
+    const book = props.book;
+    console.log('book', props.book)
 
     return (
         <>
