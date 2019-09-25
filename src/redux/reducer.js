@@ -43,13 +43,11 @@ const initialUserState = {
 export const reducer = (state = initialUserState, action) => {
     switch (action.type) {
         case SEARCHING_BOOKS:
-            console.log('from SEARCHING_BOOKS', state)
             return {
                 isSearching: true,
                 ...state,                 
             }
         case SEARCHED_BOOKS:
-            console.log('from SEARCHED_BOOKS', state)
             return {
                 isSearching: false,
                 ...state,
