@@ -1,4 +1,5 @@
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import axios from 'axios';
 
 export const SEARCHING_BOOKS = 'SEARCHING_BOOKS';
 export const SEARCHED_BOOKS = 'SEARCHED_BOOKS';
