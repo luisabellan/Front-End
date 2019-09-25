@@ -16,7 +16,7 @@ const initialUserState = {
     isSearching: false,
     user:{
         username:'',
-        id:'',
+        id:null,
         descriptions:[
             {description:'', descriptionId:'', returnedBooks:[{
                 bookId:null,
@@ -56,7 +56,12 @@ export const reducer = (state = initialUserState, action) => {
             return{
                 isGetting:false,
                 ...state,
-                user: action.payload
+                user: {
+                    ...state.user,
+                    username: action.payload.username,
+                    id: action.payload.id,
+                    descriptions: action.payload.descriptions,
+                }
             }
         
 
