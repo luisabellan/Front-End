@@ -21,7 +21,7 @@ const Header = props => (
         <div>My Books</div>
       </NavLink>
 
-      <NavLink className="link" key={'003'} to={'/saved'}>
+      <NavLink className="link" key={'003'} to={'/topbooks'}>
         <img src={book} className="link-icon" alt="logo" />
         <div>Top Books</div>
       </NavLink>

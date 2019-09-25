@@ -11,8 +11,12 @@
 .content {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  justify-items: space-evenly;
+  width: 100%;
 }
 
 .footer-logo {
-  width: 70px;
+  width: 40px;
+  align-self: center;
 }
