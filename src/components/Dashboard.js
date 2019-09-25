@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Rating from '@material-ui/lab/Rating';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import SearchResults from './SearchResults';
 
 const initialSearchForm = { summary: '' };
 
@@ -54,7 +55,7 @@ function Dashboard(props){
   return(
     <div className="dashboard">  
 
-        <FormComponent onSubmit={findBooks} />
+        <SearchResults onSubmit={findBooks} />
 
       <div className="popular">
         {
@@ -122,33 +123,6 @@ function Dashboard(props){
         </div>
       </div>
     </div>
-  );
-}
-
-function FormComponent({ onSubmit }){
-  return (
-    <Formik 
-      initialValues = {initialSearchForm}
-      onSubmit = {onSubmit}
-      render = {props => {
-        return(
-          <Form className='search-form' >
-              <Field 
-              name='summary' 
-              type='text' 
-              placeholder='Search' 
-              className='textbox'/>
-
-            <input 
-              title="Search" 
-              value="⚡ Let's Go!" 
-              type="submit" 
-              className="button">
-            </input>
-          </Form>
-          );
-        }}
-      />
   );
 }
 
