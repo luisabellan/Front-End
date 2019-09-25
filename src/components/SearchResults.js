@@ -6,21 +6,31 @@ import { searchBooks } from '../redux/actions';
 
 
 const SearchResults = props => {
+const [ description, setDescription ] = useState({description: 'magic books'})
+
+    const handleChange = e => {
+        console.log(description);
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        props.searchBooks(description)
+    }
 
     return (
-        <form className='search-form' >
-        <input 
-        name='summary' 
-        type='text' 
+        <form className='search-form' onSubmit={handleSubmit}>
+        <input         
+        type='text'
+        name='description'  
+        onChange={handleChange}
+        value={description}
         placeholder='Search' 
-        className='textbox'/>
-        
+        className='textbox'
+        />
+
         <button
         type='submit'
         className='button'
-        onClick={e => {e.preventDefault();
-            props.searchBooks()
-        }}
         >
         <span aria-label='yellow lightning bolt emoji'
         role='img'>
@@ -39,30 +49,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {searchBooks})(SearchResults);
-
-// function FormComponent({ onSubmit }){
-//   return (
-//     <Formik 
-//       initialValues = {initialSearchForm}
-//       onSubmit = {onSubmit}
-//       render = {props => {
-//         return(
-//           <Form className='search-form' >
-//               <Field 
-//               name='summary' 
-//               type='text' 
-//               placeholder='Search' 
-//               className='textbox'/>
-
-//             <input 
-//               title="Search" 
-//               value="⚡ Let's Go!" 
-//               type="submit" 
-//               className="button">
-//             </input>
-//           </Form>
-//           );
-//         }}
-//       />
-//   );
-// }

@@ -51,7 +51,7 @@ export const reducer = (state = initialUserState, action) => {
                 isSearching: false,
                 ...state,
                 user: [...state.user.descriptions], 
-                descriptions: [...state.user.descriptions, action.payload.descriptions],
+                descriptions: [...state.user.descriptions, action.payload.description],
                 returnedBooks: [action.payload.books]
             }
         case SEARCH_FAIL:
