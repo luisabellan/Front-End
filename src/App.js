@@ -11,6 +11,7 @@ import './App.css';
 import PrivateRoute from './components/PrivateRoute';
 import { Register } from './components/Register';
 import Dashboard from './components/Home';
+import TopBooks from './components/TopBooks';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <PrivateRoute exact path='/register' component={Register}/>
       <Route exact path ='/' component={Register} />
       <Route exact path ='/' component={Dashboard} />
+      <Route path ='/topbooks' component={TopBooks} />
     </div>
   );
 }

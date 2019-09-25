@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=monospace&display=swap');
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  width: 95%;
+  background: teal;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#35394a', endColorstr='#1f222e',GradientType=1 ); 
+  position: fixed;
+  align-self: center;
+  height: 77%;
+  border-radius: 16px;
+  opacity: 0.9;
+  box-shadow: 0.5px 2px 7px #282c34;
+  padding-top: 1px;
+  padding-left: 20px;
+  margin-bottom: 2px;
+}
+
+h3 {
+  width: 100%;
+  align-self: center;
+  font-size: 10pt;
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    Menlo,
+    Courier,
+    monospace;
+}
+
+h4 {
+  margin-top: 9px;
+  width: 100%;
+  align-self: center;
+  font-size: 16pt;
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    Menlo,
+    Courier,
+    monospace;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  width: 100%;
+  height: 70%;
+  margin-top: 0;
+}
+
+.add-button {
+  outline: 0;
+  background: none;
+  background-color: rgba(38, 50, 56, 0.8);
+  float: left;
+  height: 42px;
+  width: 100%;
+  text-align: center;
+  border: 0;
+  margin: 0;
+  color: #FFF;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 9pt;
+  text-rendering: auto;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-transition: background-color .4s ease;
+  transition: background-color .4s ease;
+  -webkit-border-radius: 0 4px 4px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    Menlo,
+    Courier,
+    monospace;
+}
