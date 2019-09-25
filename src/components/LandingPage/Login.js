@@ -1,24 +1,78 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
-const Login = (props) => {
-    
+//Formik
+import { Form, Field, withFormik } from 'formik';
+import * as Yup from 'yup';
+
+const Login = ({ errors, touched, values, status, handleChange, handleSubmit }) => {    
     const [credentials, setCredentials] = useState({username:'', password:''});
   
-    const handleChange = e => {
-      setCredentials({
-        ...credentials,
+    useEffect(() => {
+      if (status) {
+          setCredentials([
+              ...credentials,
+              status
+          ])
+      }
+  }, [status]);
+
+  return (
+        <Form className= 'login-form' onSubmit={handleSubmit}>
+            <Field
+            type="text"
+            name="username"
+            placeholder='Username'
+            value={values.username}
+            onChange={handleChange}
+            />
+            {
+                touched.username && errors.username && (<p>{errors.username}</p>)
+            }            
+            <Field
+            type="password"
+            name="password"
+            placeholder= 'Password'
+            value={values.password}
+            onChange={handleChange}
+            />
+            {
+                touched.password && errors.password && (<p>{errors.password}</p>)
+            }            
+            <button>Log in</button>
+        </Form>
+    );
+};//regular login form
+    const FormikLogin = withFormik({
+      mapStateToValues(
+        { username, password }
+      ) {
+        return {
+          username: username || '',
+          password: password || ''
+        };
+      },//mapStateToValues
+
+      validationSchema: Yup.object().shape (
+        {
+          username: Yup.string().required(),
+          password: Yup.string().required()
+        }
+      ),//validationSchema
+
+    handleChange({ setStatus }, e, values ) {
+      setStatus({
+        ...values,
         [e.target.name]: e.target.value
         }
         );
-        console.log(credentials);
-    };
+        console.log(values);
+    },
   
-    const login = e => {
-      e.preventDefault();
+    handleSubmit(values, { props }) {
       
       axiosWithAuth()
-        .post('/login', credentials)
+        .post('/login', values)
         .then(res => {
           localStorage.setItem('token', res.data.token);
           console.log(res);
@@ -28,30 +82,7 @@ const Login = (props) => {
           
         })
         .catch(err => console.log(err.response));
-    };
-  
+    }
+  })(Login)//Currying
 
-      return (
-        <div>
-          <form className= 'login-form' onSubmit={login}>
-            <input
-              type="text"
-              name="username"
-              placeholder='Username'
-              value={credentials.username}
-              onChange={handleChange}
-            />
-            <input
-              type="password"
-              name="password"
-              placeholder= 'Password'
-              value={credentials.password}
-              onChange={handleChange}
-            />
-            <button>Log in</button>
-          </form>
-        </div>
-      );
-  }
-  
-  export default Login;
+  export default FormikLogin;

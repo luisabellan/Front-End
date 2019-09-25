@@ -1,6 +1,6 @@
 import React from 'react';
-import Login from './Login';
-import { Register } from './Register';
+import FormikLogin from './Login';
+import FormikRegister from './Register';
 import './LandingPage.css';
 
 const LandingPage = (props) => {
@@ -10,9 +10,9 @@ const LandingPage = (props) => {
     return(
         <div className='landing-page'>
         <h1>Welcome to Better Reads!</h1>
-        <Login {...props}/>
+        <FormikLogin {...props}/>
         <h2>First time visiting Better Reads? Create your account!</h2>
-        <Register {...props} />
+        <FormikRegister {...props} />
         </div>
     )
 }
