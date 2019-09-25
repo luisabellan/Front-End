@@ -10,6 +10,7 @@ const initialUserState = {
 
     //Alternative Data structure
     isSearching: false,
+    returnedBooks: [],
     user:{
         username:'',
         id:'',
@@ -17,7 +18,7 @@ const initialUserState = {
             {description:'', descriptionId:'', returnedBooks:[{
                 bookId:null,
                 descriptionId:'',
-                title:'',
+                title:'Harry Potter',
                 author:'',
                 isbn:null,
                 rating:'',
@@ -50,8 +51,11 @@ export const reducer = (state = initialUserState, action) => {
             return {
                 isSearching: false,
                 ...state,
-                user: [...state.user.descriptions], descriptions: [...state.user.descriptions, action.payload]
+                user: [...state.user.descriptions], 
+                descriptions: [...state.user.descriptions, action.payload.description],
+                returnedBooks: action.payload.books
             }
+            
         case SEARCH_FAIL:
             return {
                 ...state
