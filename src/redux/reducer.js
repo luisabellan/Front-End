@@ -1,4 +1,5 @@
 import { SEARCHING_BOOKS, SEARCHED_BOOKS, SEARCH_FAIL } from './actions';
+import { GETTING_USER, GOT_USER, GET_USER_FAIL } from './actions';
 
 const initialUserState = {
     // user:{
@@ -9,6 +10,9 @@ const initialUserState = {
     // }
 
     //Alternative Data structure
+    isGetting: false,
+    isSaving: false,
+    isDeletingBook: false,
     isSearching: false,
     user:{
         username:'',
@@ -41,6 +45,23 @@ const initialUserState = {
 
 export const reducer = (state = initialUserState, action) => {
     switch (action.type) {
+        //User
+        case GETTING_USER:
+            return{
+                isGetting: true,
+                ...state
+            }
+
+        case GOT_USER:
+            return{
+                isGetting:false,
+                ...state,
+                user: action.payload
+            }
+        
+
+
+        //Search
         case SEARCHING_BOOKS:
             return {
                 isSearching: true,

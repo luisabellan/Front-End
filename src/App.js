@@ -7,7 +7,6 @@ import Footer from './components/Footer';
 import PrivateRoute from './components/LandingPage/PrivateRoute';
 
 import LandingPage from './components/LandingPage/LandingPage';
-import Home from './components/Home';
 
 //Particles.js
 import Particles from 'react-particles-js';
@@ -24,10 +23,10 @@ function App() {
       <Particles params={particles}/>
       <Footer className="footer"></Footer>
       <Switch>
-        <PrivateRoute exact path='/home' component={Home} />
+        <PrivateRoute exact path='/home' component={Dashboard} />
         <Route exact path = '/' component={LandingPage} />
       </Switch>
-      <Route exact path ='/' component={Dashboard} />
+      {/* <Route exact path ='/' component={Dashboard} /> */}
       <Route path ='/topbooks' component={TopBooks} />
     </div>
   );
