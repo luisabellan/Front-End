@@ -6,10 +6,11 @@ import { searchBooks } from '../redux/actions';
 
 
 const SearchResults = props => {
-const [ description, setDescription ] = useState({description: 'magic books'})
+const [ description, setDescription ] = useState({description: ''})
 
     const handleChange = e => {
         console.log(description);
+        setDescription({description: e.target.value})
     }
 
     const handleSubmit = e => {
@@ -23,7 +24,7 @@ const [ description, setDescription ] = useState({description: 'magic books'})
         type='text'
         name='description'  
         onChange={handleChange}
-        value={description}
+        value={description.description}
         placeholder='Search' 
         className='textbox'
         />
