@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
-import * as Yup from 'yup';
 
 //Formik
 import { Form, Field, withFormik } from 'formik';
+import * as Yup from 'yup';
 
-const Register = ({ errors, touched, values, handleChange, handleSubmit, status }) => {
-const [ registration, setRegistration] = useState({ username: '', password: '' });
+const Register = ({ errors, touched, values, status, handleChange, handleSubmit }) => {
+const [ registration, setRegistration] = useState({ username:'', password:'' });
 
     useEffect(() => {
         if (status) {
@@ -61,17 +61,14 @@ const [ registration, setRegistration] = useState({ username: '', password: '' }
             }
         ),//validationSchema
 
-
-
       handleChange({ setStatus },e, values) {
           e.preventDefault();
         setStatus({
             ...values, [e.target.name]: e.target.value })
             console.log(values);
-      },
-    
+      },    
 
-    handleSubmit(values, { props }, e){
+    handleSubmit(values, { props } ){
 
         axiosWithAuth().post('/register', values).then(res => {
             localStorage.setItem('token', res.data.token)
