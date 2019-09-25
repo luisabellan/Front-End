@@ -80,6 +80,30 @@ form > .button:hover {
 
 .popular {
   border-top: 1px solid #282c34;
-  width: 90%;
+  width: 96%;
   align-self: center;
+  display: flex;
+  flex-direction: column;
+  flex-flow: wrap;
+}
+
+h3 {
+  width: 100%;
+  align-self: center;
+  font-size: 14pt;
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    Menlo,
+    Courier,
+    monospace;
+}
+
+.book-cards {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  height: 270px;
 }
