@@ -9,15 +9,16 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import IconButton from '@material-ui/core/IconButton';
+import Rating from '@material-ui/lab/Rating';
+
+
 
 const useStyles = makeStyles({
     card: {
-      minWidth: 275,
-    },
-    bullet: {
-      display: 'inline-block',
-      margin: '0 2px',
-      transform: 'scale(0.8)',
+      maxWidth: 275,
+      margin: '8px',
+      borderRadius: '0',
+      boxShadow: '0.5px 2px 7px #282c34',
     },
     title: {
       fontSize: 14,
@@ -38,7 +39,7 @@ const Book = (props) => {
     console.log('book', props.book)
 
     return (
-        <>
+        <div className='book'>
         <Card className={classes.card}>
             <CardContent>
                 <Typography variant="h5" component="h2">
@@ -48,7 +49,8 @@ const Book = (props) => {
                 {book.author}
                 </Typography>
                 <Typography variant="body2" component="p">
-                Rating: {book.rating}
+                Rating:
+                <Rating name="disabled" value={book.rating} readOnly/>
                 <br />
                 ISBN: {book.isbn}
                 </Typography>
@@ -59,7 +61,7 @@ const Book = (props) => {
                 </IconButton>
             </CardActions>
         </Card>
-        </>
+        </div>
     )
 }
 
