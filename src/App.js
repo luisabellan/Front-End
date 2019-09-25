@@ -10,7 +10,7 @@ import logo from './logo.svg';
 import './App.css';
 import PrivateRoute from './components/PrivateRoute';
 import { Register } from './components/Register';
-import Dashboard from './components/Home';
+import Dashboard from './components/Dashboard';
 import TopBooks from './components/TopBooks';
 
 function App() {
