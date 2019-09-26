@@ -19,16 +19,7 @@ const initialUserState = {
         username:'',
         id:null,
         descriptions:[
-            {description:'', descriptionId:'', returnedBooks:[{
-                bookId:null,
-                descriptionId:'',
-                title:'Harry Potter',
-                author:'',
-                isbn:null,
-                rating:'',
-                read:false,
-                saved:false}
-            ]},
+            {description:'', id:'', books:[]},
         ],
         savedBooks:[
             {bookId:null,
@@ -62,6 +53,7 @@ export const reducer = (state = initialUserState, action) => {
                     username: action.payload.username,
                     id: action.payload.id,
                     descriptions: action.payload.descriptions,
+                    savedBooks: action.payload.books
                 }
             }
         

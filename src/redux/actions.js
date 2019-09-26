@@ -1,4 +1,5 @@
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { instanceAxios } from '../utils/instanceAxios';
 import axios from 'axios';
 
 export const SEARCHING_BOOKS = 'SEARCHING_BOOKS';
@@ -55,12 +56,15 @@ export const GET_USER_FAIL = 'GET_USER_FAIL';
 
 export const getUser = () => dispatch => {
     dispatch({ type: GETTING_USER });
-    axios
-        .get('https://better-reads-bw.herokuapp.com/api/user')
+
+        instanceAxios()
+        .get('/user')
         .then( res => {
+            console.log(res);
             dispatch({ type:GOT_USER, payload:res.data});
         })
         .catch( err => {
+            (console.log(window.localStorage.getItem('token')));
             dispatch({ type: GET_USER_FAIL, payload: err })
         })
 }
