@@ -11,7 +11,7 @@ const Header = props => (
     <img src={logo} className="logo" alt="logo" />
     <div className="nav-link">
 
-      <NavLink className="link" key={'001'} to={'/'}>
+      <NavLink className="link" key={'001'} to={'/home'}>
         <img src={home} className="link-icon" alt="logo" />
         <div>Home</div>
       </NavLink>
