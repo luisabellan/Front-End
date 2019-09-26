@@ -21,6 +21,8 @@ form {
   align-self: center;
   border-radius: 9px;
   margin-bottom: 2%;
+  display: flex;
+
 }
 
 form > .textbox {
@@ -29,6 +31,7 @@ form > .textbox {
   width: 70%;
   line-height: 42px;
   padding: 0 16px;
+  margin: 0%;
   background-color: rgba(255, 255, 255, 0.8);
   color: #212121;
   border: 0;
@@ -149,4 +152,11 @@ h4 {
     Menlo,
     Courier,
     monospace;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
 }
