@@ -20,3 +20,9 @@
   width: 40px;
   align-self: center;
 }
+
+@media screen and (max-width: 800px) {
+  .footer-logo {
+    width: 30px;
+  }
+}

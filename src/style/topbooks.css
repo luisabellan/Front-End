@@ -82,3 +82,11 @@ h4 {
     Courier,
     monospace;
 }
+
+
+@media screen and (max-width: 800px) {
+  .dashboard {
+    margin-top: 20%;
+    height: 75%;
+  }
+}
