@@ -3,12 +3,9 @@
 .dashboard {
   display: flex;
   flex-direction: column;
-  margin-top: 60px;
   width: 95%;
   background: teal;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#35394a', endColorstr='#1f222e',GradientType=1 ); 
-  position: fixed;
-  align-self: center;
   border-radius: 16px;
   opacity: 0.9;
   box-shadow: 0.5px 2px 7px #282c34;
@@ -149,4 +146,18 @@ h4 {
     Menlo,
     Courier,
     monospace;
+}
+
+@media screen and (max-width: 800px) {
+  .dashboard {
+    margin-top: 60%;
+    height: 60%;
+  }
+  form {
+    width: 90%;
+  }
+  .book-cards {
+    flex-direction: row;
+    width: 100%;
+  }
 }
