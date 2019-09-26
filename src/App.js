@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import PrivateRoute from './components/LandingPage/PrivateRoute';
 
 import LandingPage from './components/LandingPage/LandingPage';
+import SavedList from './components/SavedList/SavedList';
 
 //Particles.js
 import Particles from 'react-particles-js';
@@ -28,6 +29,7 @@ function App() {
       </Switch>
       {/* <Route exact path ='/' component={Dashboard} /> */}
       <Route path ='/topbooks' component={TopBooks} />
+      <Route path = '/saved' component={SavedList} />
     </div>
   );
 }
