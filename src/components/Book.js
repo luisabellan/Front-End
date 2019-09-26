@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+//redux
+import { connect } from 'react-redux';
+import { setImages } from '../redux/actions';
 
 //Material UI
 import { makeStyles } from '@material-ui/core/styles';
@@ -30,6 +33,9 @@ const useStyles = makeStyles({
 
 
 const Book = (props) => {
+  const [ image, setImage ] = ('');
+
+   
 
     //Material UI
     const classes = useStyles();
@@ -37,6 +43,14 @@ const Book = (props) => {
     //props later
     const book = props.book;
     console.log('book', props.book)
+
+    // if(book.ISBN === null){
+    //   return book;
+    // }else{
+    //   props.image(book.ISBN)
+    // }
+    
+
 
     return (
         <div className='book'>
@@ -52,7 +66,7 @@ const Book = (props) => {
                 Rating:
                 <Rating name="disabled" value={book.rating} readOnly/>
                 <br />
-                ISBN: {book.isbn}
+                ISBN: {book.ISBN}
                 </Typography>
             </CardContent>
             <CardActions>
@@ -65,4 +79,9 @@ const Book = (props) => {
     )
 }
 
-export default Book;
+const mapStateToProps = state => {
+  return {
+      state: state,
+  }
+}
+export default connect(mapStateToProps, { setImages })(Book);

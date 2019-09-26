@@ -18,7 +18,7 @@ const [ registration, setRegistration] = useState({ username:'', password:'' });
     }, [status]);
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form className='register-form' onSubmit={handleSubmit}>
             <Field
             type='text'
             name='username'

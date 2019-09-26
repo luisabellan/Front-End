@@ -1,4 +1,4 @@
-import { SEARCHING_BOOKS, SEARCHED_BOOKS, SEARCH_FAIL } from './actions';
+import { SEARCHING_BOOKS, SEARCHED_BOOKS, SEARCH_FAIL, SET_IMAGES } from './actions';
 import { GETTING_USER, GOT_USER, GET_USER_FAIL } from './actions';
 
 const initialUserState = {
@@ -15,6 +15,7 @@ const initialUserState = {
     isDeletingBook: false,
     isSearching: false,
     returnedBooks: [],
+    img_URLs: [],
     user:{
         username:'',
         id:null,
@@ -26,6 +27,7 @@ const initialUserState = {
             descriptionId:'',
             title:'',
             author:'',
+            img_URL:'',
             isbn:null,
             rating:'',
             read:false,
@@ -72,6 +74,12 @@ export const reducer = (state = initialUserState, action) => {
                 user: [...state.user.descriptions], 
                 descriptions: [...state.user.descriptions, action.payload.description],
                 returnedBooks: action.payload.books
+            }
+        case SET_IMAGES:
+            return {
+                isSearching: false,
+                ...state,
+                img_URL: action.payload
             }
             
         case SEARCH_FAIL:
