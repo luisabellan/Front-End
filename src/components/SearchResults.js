@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Book from './Book';
 //redux
 import { connect } from 'react-redux';
-import { searchBooks } from '../redux/actions';
+import { searchBooks, setImages } from '../redux/actions';
 
 
 const SearchResults = props => {
@@ -16,6 +16,7 @@ const [ description, setDescription ] = useState({description: ''})
         e.preventDefault();
         props.searchBooks(description)
     }
+    console.log(props.state.returnedBooks)
 
     return ([
         <form className='search-form' onSubmit={handleSubmit}>
@@ -42,7 +43,7 @@ const [ description, setDescription ] = useState({description: ''})
         <div>     
             {props.state.returnedBooks.length > 0 ? 
             props.state.returnedBooks.map(item => {
-                return <Book book={item} />
+                return <Book book={item} image={props.setImages}/>
             }) : null}            
         </div>
     </form>
@@ -54,4 +55,4 @@ const mapStateToProps = state => {
         state: state,
     }
 }
-export default connect(mapStateToProps, {searchBooks})(SearchResults);
+export default connect(mapStateToProps, {searchBooks, setImages })(SearchResults);

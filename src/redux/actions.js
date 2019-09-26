@@ -4,18 +4,29 @@ import axios from 'axios';
 export const SEARCHING_BOOKS = 'SEARCHING_BOOKS';
 export const SEARCHED_BOOKS = 'SEARCHED_BOOKS';
 export const SEARCH_FAIL = 'SEARCH_FAIL';
+export const SET_IMAGES = 'SET_IMAGES'
+export const GET_IMAGES = 'GET_IMAGES'
 
 export const searchBooks = (description) => dispatch => {
-    console.log(description)
     dispatch({ type: SEARCHING_BOOKS, payload: description });
     console.log(dispatch.payload);
     axiosWithAuth().post('https://better-reads-bw.herokuapp.com/api/user/description', description).then(res => {
         console.log(res)
         dispatch({ type: SEARCHED_BOOKS, payload: res.data});
+        return res.data
     }).catch(err => {
         dispatch({ type: SEARCH_FAIL });
     });
 };
+
+
+export const setImages = (isbn) => dispatch => {
+    dispatch({ type: GET_IMAGES });
+        axios.get(`https://www.googleapis.com/books/v1/volumes?q=isbn:9781118531648&key=AIzaSyANj7100xMl9DwJw-uVv-pxGOZxRCDnQgU`).then( res => {
+            dispatch({ type: SET_IMAGES, payload: res.data });
+            console.log(res.data)                
+        })
+}
 
 export const SAVING_BOOK = 'SAVING_BOOK';
 export const SAVED_BOOK = 'SAVED_BOOK';

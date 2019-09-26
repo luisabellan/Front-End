@@ -1,3 +1,96 @@
 .landing-page{
-    margin:2%;
-}
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        background: teal;
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#35394a', endColorstr='#1f222e',GradientType=1 ); 
+        position: fixed;
+        align-self: center;
+        border-radius: 16px;
+        opacity: 0.9;
+        box-shadow: 0.5px 2px 7px #282c34;
+        transform: translateY(15%)
+      } 
+  
+  form > input {
+    outline: 0;
+    height: 25px;
+    width: 70%;
+    margin: 1%;
+    line-height: 42px;
+    padding: 0 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #212121;
+    border: 0;
+    float: left;
+    font-size: 14pt;
+    font-weight: 900;
+    border-radius: 8px;
+    font-family:
+      "SFMono-Regular",
+      Consolas,
+      "Liberation Mono",
+      Menlo,
+      Courier,
+      monospace;
+  }
+  
+  form > .input:focus {
+    outline: 0;
+    background-color: #FFF;
+  }
+  
+  form > button {
+    outline: 0;
+    background: none;
+    background-color: rgba(38, 50, 56, 0.8);
+    float: left;
+    height: 52px;
+    width: 30%;
+    text-align: center;
+    line-height: 42px;
+    border: 0;
+    color: #FFF;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 16px;
+    text-rendering: auto;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    -webkit-transition: background-color .4s ease;
+    transition: background-color .4s ease;
+    -webkit-border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+  
+  form > button:hover {
+    background-color: rgba(0, 150, 136, 0.8);
+  }
+  
+  
+  h1 {
+    width: 100%;
+    align-self: center;
+    font-size: 14pt;
+    font-family:
+      "SFMono-Regular",
+      Consolas,
+      "Liberation Mono",
+      Menlo,
+      Courier,
+      monospace;
+  }
+  
+  h2 {
+    width: 100%;
+    align-self: center;
+    font-size: 15pt;
+    padding: 0;
+    margin-top: 4px;
+    font-family:
+      "SFMono-Regular",
+      Consolas,
+      "Liberation Mono",
+      Menlo,
+      Courier,
+      monospace;
+  }
