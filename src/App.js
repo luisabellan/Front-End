@@ -30,9 +30,8 @@ function App() {
         <PrivateRoute exact path='/home' component={Dashboard} />
         <Route exact path = '/' component={LandingPage} />
       </Switch>
-      {/* <Route exact path ='/' component={Dashboard} /> */}
       <Route path ='/topbooks' component={TopBooks} />
-      <Route path = '/saved' component={SavedList} />
+      <PrivateRoute exact path = '/saved' component={SavedList} />
     </div>
   );
 }

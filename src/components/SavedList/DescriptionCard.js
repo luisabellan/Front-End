@@ -14,7 +14,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-import Book from '../Book';
+import SearchedBook from './SearchedBook';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -89,7 +89,7 @@ export default function DescriptionCard( props ) {
         <div className = 'desc-book-list'>
         {description.books.length > 0 ? 
             description.books.map(book => (
-                <Book key={book.id} book={book} saveThis={props.saveThis} />
+                <SearchedBook key={book.id} book={book} saveThis={props.saveThis} />
             )) : null}
         </div>
         </CardContent>

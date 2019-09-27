@@ -16,6 +16,10 @@ const SavedList = ({getUser, isGetting, user, saveBook, isSaving, deleteBook, is
 
     if(isGetting) {
         console.log('isGetting', isGetting)
+
+        return(
+            <p>Loading!</p>
+        )
     }
 
     if(!isGetting){

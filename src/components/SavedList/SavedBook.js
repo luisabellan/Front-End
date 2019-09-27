@@ -1,8 +1,5 @@
 import React, { useEffect } from 'react';
-//redux
-import { connect } from 'react-redux';
-import { setImages } from '../../redux/actions';
-
+import Book from '../Book';
 //Material UI
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -24,13 +21,6 @@ const useStyles = makeStyles({
       borderRadius: '0',
       boxShadow: '0.5px 2px 7px #282c34',
     },
-    title: {
-      fontSize: 14,
-    },
-    pos: {
-      marginBottom: 12,
-    },
-
     icon: {
       color: red[500],
     },
@@ -64,20 +54,7 @@ const SavedBook = (props) => {
     return (
         <div className='book'>
         <Card className={classes.card}>
-            <CardContent>
-                <Typography variant="h5" component="h2">
-                {book.title}
-                </Typography>
-                <Typography className={classes.pos} color="textSecondary">
-                {book.authors}
-                </Typography>
-                <Typography variant="body2" component="p">
-                Rating:
-                <Rating name="disabled" value={book.rating} readOnly/>
-                <br />
-                ISBN: {book.ISBN}
-                </Typography>
-            </CardContent>
+            <Book book={book} />
             <CardActions>
                 <IconButton className={classes.icon} aria-label="add to favorites" onClick={() => props.deleteThis(id)} >
                     <FavoriteIcon />
@@ -88,9 +65,4 @@ const SavedBook = (props) => {
     )
 }
 
-const mapStateToProps = state => {
-  return {
-      state: state,
-  }
-}
-export default connect(mapStateToProps, { setImages })(SavedBook);
+export default SavedBook;
