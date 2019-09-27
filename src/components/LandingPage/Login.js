@@ -85,7 +85,7 @@ const Login = ({ errors, touched, values, status, handleChange, handleSubmit }, 
           localStorage.setItem('token', res.data.token);
           props.history.push('/home');
           console.log(props)
-          props.logIn();
+          props.logIn();//dispatch action to update logged in state to true
           
           
         })
