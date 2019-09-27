@@ -64,7 +64,7 @@ const Book = (props) => {
                 {book.title}
                 </Typography>
                 <Typography className={classes.pos} color="textSecondary">
-                {book.author}
+                {book.authors}
                 </Typography>
                 <Typography variant="body2" component="p">
                 Rating:
