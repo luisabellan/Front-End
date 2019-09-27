@@ -50,7 +50,7 @@ const SavedBook = (props) => {
     console.log('book', props.book)
     console.log(props);
 
-    const id = {"bookId": props.book.id}
+    const id = props.book.id;
     console.log(id);
     console.log(props.book.id);
 

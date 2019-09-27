@@ -42,9 +42,11 @@ const Book = (props) => {
 
     //props later
     const book = props.book;
+    console.log('Book props', props)
+    console.log('Book props.book', props.book)
 
-    console.log('book', props.book)
-    console.log(props);
+    const id = {"bookId": props.book.id}
+    console.log('Book props.book.id', props.book.id, 'id', id);
 
     // if(book.ISBN === null){
     //   return book;
@@ -72,7 +74,7 @@ const Book = (props) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <IconButton aria-label="add to favorites" onClick={() => props.saveThis(props.book.id)}>
+                <IconButton aria-label="add to favorites" onClick={() => props.saveThis(id)}>
                     <FavoriteIcon />
                 </IconButton>
             </CardActions>

@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function DescriptionCard( props ) {
+export default function SavedBooks( props ) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -47,7 +47,8 @@ export default function DescriptionCard( props ) {
 
   //Functionality
 
-  console.log(props.user.savedBooks);
+  console.log('SavedBooks props', props)
+  console.log('SavedBooks props.user.savedBooks', props.user.savedBooks);
   const savedBooks= props.user.savedBooks;
 
   return (
