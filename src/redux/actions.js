@@ -62,7 +62,7 @@ export const saveBook = (bookId) => dispatch => {
         .then( res => {
             console.log('save book res', res);
             console.log('save book res.data.books', res.data.books);
-            dispatch({ type:SAVED_BOOK, payload:res.data});
+            dispatch({ type:SAVED_BOOK, payload:res.data.books});
         })
         .catch( err => {
             console.log('save book err', err);
@@ -82,7 +82,7 @@ export const deleteBook = (bookId) => dispatch => {
         .then( res => {
             console.log('delete book res', res);
             console.log('delete book res.data.bookList', res.data.bookList);
-            dispatch({ type:DELETED_BOOK, payload:res.data});
+            dispatch({ type:DELETED_BOOK, payload:res.data.bookList});
         })
         .catch( err => {
             console.log('delete book err', err);

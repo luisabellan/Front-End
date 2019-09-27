@@ -47,12 +47,11 @@ const SavedBook = (props) => {
 
     //props later
     const book = props.book;
-    console.log('book', props.book)
-    console.log(props);
+    console.log('Saved Book props.book', props.book)
+    console.log('Saved Book props', props);
 
     const id = props.book.id;
-    console.log(id);
-    console.log(props.book.id);
+    console.log('Saved Book props.book.id', props.book.id, 'id', id);
 
     // if(book.ISBN === null){
     //   return book;
@@ -70,7 +69,7 @@ const SavedBook = (props) => {
                 {book.title}
                 </Typography>
                 <Typography className={classes.pos} color="textSecondary">
-                {book.author}
+                {book.authors}
                 </Typography>
                 <Typography variant="body2" component="p">
                 Rating:
