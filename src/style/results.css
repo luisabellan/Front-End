@@ -1,0 +1,10 @@
+.returned {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+}

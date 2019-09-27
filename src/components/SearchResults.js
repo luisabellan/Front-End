@@ -4,6 +4,8 @@ import Book from './Book';
 import { connect } from 'react-redux';
 import { searchBooks, setImages } from '../redux/actions';
 
+import '../style/results.css';
+
 
 const SearchResults = props => {
 const [ description, setDescription ] = useState({description: ''})
@@ -19,6 +21,7 @@ const [ description, setDescription ] = useState({description: ''})
     console.log(props.state.returnedBooks)
 
     return ([
+      <div className="search">
         <form className='search-form' onSubmit={handleSubmit}>
         <input         
         type='text'
@@ -40,13 +43,15 @@ const [ description, setDescription ] = useState({description: ''})
         Let's Go!
         </button>
         
-        <div>     
+        
+        </form>
+        <div className="returned">     
             {props.state.returnedBooks.length > 0 ? 
             props.state.returnedBooks.map(item => {
-                return <Book book={item} image={props.setImages}/>
+                return <Book book={item} image={props.setImages} className="book" />
             }) : null}            
         </div>
-    </form>
+    </div>
     ])
 }
 
