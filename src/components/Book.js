@@ -1,7 +1,7 @@
 import React from 'react';
 //redux
-import { connect } from 'react-redux';
-import { setImages } from '../redux/actions';
+// import { connect } from 'react-redux';
+// import { setImages } from '../redux/actions';
 
 //Material UI
 import { makeStyles } from '@material-ui/core/styles';
@@ -20,8 +20,8 @@ const useStyles = makeStyles({
     card: {
       maxWidth: 275,
       margin: '8px',
-      borderRadius: '0',
-      boxShadow: '0.5px 2px 7px #282c34',
+      padding: '8px',
+      backgroundColor:'white',
     },
     title: {
       fontSize: 14,
@@ -57,9 +57,7 @@ const Book = (props) => {
 
 
     return (
-        <div className='book'>
-        <Card className={classes.card}>
-            <CardContent>
+            <CardContent className={classes.card}>
                 <Typography variant="h5" component="h2">
                 {book.title}
                 </Typography>
@@ -73,19 +71,13 @@ const Book = (props) => {
                 ISBN: {book.ISBN}
                 </Typography>
             </CardContent>
-            <CardActions>
-                <IconButton aria-label="add to favorites" onClick={() => props.saveThis(id)}>
-                    <FavoriteIcon />
-                </IconButton>
-            </CardActions>
-        </Card>
-        </div>
     )
 }
 
-const mapStateToProps = state => {
-  return {
-      state: state,
-  }
-}
-export default connect(mapStateToProps, { setImages })(Book);
+// const mapStateToProps = state => {
+//   return {
+//       state: state,
+//   }
+// }
+// export default connect(mapStateToProps, { setImages })(Book);
+export default Book;

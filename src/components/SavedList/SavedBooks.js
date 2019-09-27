@@ -8,15 +8,17 @@ import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
-import { red } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 
 import SavedBook from './SavedBook';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: 345,
+    maxWidth: 1000,
+    width:'75%',
+    margin:'inherit, auto',
+    justifyContent:'space-around'
   },
   media: {
     height: 0,
@@ -32,12 +34,17 @@ const useStyles = makeStyles(theme => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  avatar: {
-    backgroundColor: red[500],
-  },
+  header:{
+    width: '80%'
+
+},
+flexWrap: {
+    display:'flex',
+    flexWrap:'wrap'
+}
 }));
 
-export default function SavedBooks( props ) {
+const SavedBooks = ( props ) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -46,48 +53,42 @@ export default function SavedBooks( props ) {
   };
 
   //Functionality
-
   console.log('SavedBooks props', props)
   console.log('SavedBooks props.user.savedBooks', props.user.savedBooks);
   const savedBooks= props.user.savedBooks;
 
   return (
     <Card className={classes.card}>
-      <CardHeader
+      <CardHeader className={classes.header}
         avatar={
-          <Avatar aria-label="description" className={classes.avatar}>
-            S
+          <Avatar aria-label="description">
+            <ImportContactsIcon/>
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
+          <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
           </IconButton>
         }
         title='Saved Books'
       />
-      <CardActions disableSpacing>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-        <div className = 'saved-book-list'>
+        <CardContent className={classes.flexWrap}>
         {savedBooks.length > 0 ? 
             savedBooks.map(book => (
-                <SavedBook key={book.id} book={book} deleteThis={props.deleteThis}/>
+                <SavedBook key={book.id} book={book} deleteThis={props.deleteBook}/>
             )) : null}
-        </div>
         </CardContent>
       </Collapse>
     </Card>
   );
 }
+
+export default SavedBooks;

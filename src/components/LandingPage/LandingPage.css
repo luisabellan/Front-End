@@ -1,4 +1,4 @@
-.landing-page{
+/* .landing-page{
         display: flex;
         flex-direction: column;
         width: 95%;
@@ -11,9 +11,25 @@
         box-shadow: 0.5px 2px 7px #282c34;
         transform: translateY(15%);
         margin-top: 60px;
-      } 
-  
-  form > input {
+      }  */
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  width: 95%;
+  background: teal;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#35394a', endColorstr='#1f222e',GradientType=1 ); 
+  position: fixed;
+  align-self: center;
+  height: 80%;
+  border-radius: 16px;
+  opacity: 0.9;
+  box-shadow: 0.5px 2px 7px #282c34;
+  padding-top: 1px;
+  padding-left: 20px;
+  margin-bottom: 2px;
+}
+.landing-page form > input {
     outline: 0;
     height: 50px;
     width: 70%;
@@ -36,12 +52,12 @@
       monospace;
   }
   
-  form > input:focus {
+.landing-page form > input:focus {
     outline: 0;
     background-color: #FFF;
   }
   
-  form > button {
+.landing-page form > button {
     outline: 0;
     background: none;
     background-color: rgba(38, 50, 56, 0.8);
@@ -63,12 +79,12 @@
     cursor: pointer;
   }
   
-  form > button:hover {
+.landing-page form > button:hover {
     background-color: rgba(0, 150, 136, 0.8);
   }
   
   
-  h1 {
+  .landing-page h1 {
     width: 100%;
     align-self: center;
     font-size: 14pt;
@@ -81,7 +97,7 @@
       monospace;
   }
   
-  h2 {
+  .landing-page h2 {
     width: 100%;
     align-self: center;
     font-size: 15pt;

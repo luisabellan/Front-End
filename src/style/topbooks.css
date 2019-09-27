@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=monospace&display=swap');
 
-.dashboard {
+.topbooks {
   display: flex;
   flex-direction: column;
   margin-top: 50px;
@@ -18,7 +18,7 @@
   margin-bottom: 2px;
 }
 
-h3 {
+.topbooks h3 {
   width: 100%;
   align-self: center;
   font-size: 10pt;
@@ -31,7 +31,7 @@ h3 {
     monospace;
 }
 
-h4 {
+.topbooks h4 {
   margin-top: 9px;
   width: 100%;
   align-self: center;
@@ -45,7 +45,7 @@ h4 {
     monospace;
 }
 
-.cards {
+.topbooks .cards {
   display: flex;
   flex-direction: row;
   flex-flow: wrap;
@@ -54,7 +54,7 @@ h4 {
   margin-top: 0;
 }
 
-.add-button {
+.topbooks .add-button {
   outline: 0;
   background: none;
   background-color: rgba(38, 50, 56, 0.8);
@@ -85,7 +85,7 @@ h4 {
 
 
 @media screen and (max-width: 800px) {
-  .dashboard {
+  .topbooks {
     margin-top: 20%;
     height: 75%;
   }

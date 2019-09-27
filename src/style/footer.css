@@ -2,13 +2,14 @@
   position: fixed;
   left: 0;
   bottom: 0;
+  align-self: flex-end;
   width: 100%;
   background-color: rgb(92, 90, 90);
   padding: 1%;
   box-shadow: 0.5px 2px 7px #282c34;
 }
 
-.content {
+.footer .content {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -16,7 +17,7 @@
   width: 100%;
 }
 
-.footer-logo {
+.footer .footer-logo {
   width: 40px;
   align-self: center;
 }

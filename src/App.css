@@ -47,4 +47,32 @@ img {
 .App {
   display: flex;
   flex-direction: column;
+
+}
+
+/* Material UI Updates */
+
+.MuiTypography-body2{
+  font-size: 1.3rem !important;
+}
+
+.MuiTypography-body1{
+  font-size: 1.4rem !important;
+}
+
+.MuiTypography-h5{
+  font-size: 1.7rem !important;
+}
+
+.MuiIconButton-root .MuiSvgIcon-root{
+  font-size: 2.4rem !important;
+  color: teal !important;
+}
+
+.MuiAvatar-colorDefault{
+  background-color: teal !important;
+}
+
+*{
+  box-sizing: border-box;
 }

@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+}
+
+.display-saved {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 95%;
+    background: teal;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#35394a', endColorstr='#1f222e',GradientType=1 ); 
+    position: fixed;
+    align-self: center;
+    height: 80%;
+    border-radius: 16px;
+    opacity: 0.9;
+    box-shadow: 0.5px 2px 7px #282c34;
+    padding-top: 1px;
+    padding-left: 20px;
+    margin-bottom: 2px;
+    overflow: scroll;
+  }
+
+  #root > div > div.display-saved > div{
+      margin:20px 0;
+      overflow: scroll;
+      align-self: center;
+      justify-self: center;
+  }
+
+  #root > div > div.display-saved > div > div.MuiCardHeader-root.makeStyles-header-222 > div.MuiCardHeader-content > span{
+      font-size:3rem !important;
+  }
+
+  .desc{
+      width:80%;
+      margin-right:0 !important;
+      justify-self: center;
+  }
+
+  .desc #root > div > div.display-saved > div{
+      margin: 0;
+  }
