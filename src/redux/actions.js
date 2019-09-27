@@ -51,12 +51,14 @@ export const DELETE_FAIL = 'DELETE_FAIL';
 
 export const deleteBook = (bookId) => dispatch => {
     dispatch({ type: DELETING_BOOK, payload: bookId});
-    axios
+    instanceAxios()
         .delete('https://better-reads-bw.herokuapp.com/api/user/book', bookId)
         .then( res => {
             dispatch({ type:DELETED_BOOK, payload:res.data});
         })
         .catch( err => {
+            console.log(err);
+            console.log(err.response);
             dispatch({ type: DELETE_FAIL, payload: err })
         })
 }

@@ -12,7 +12,7 @@ import { red } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-import Book from '../Book';
+import SavedBook from './SavedBook';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -82,7 +82,7 @@ export default function DescriptionCard( props ) {
         <div className = 'saved-book-list'>
         {savedBooks.length > 0 ? 
             savedBooks.map(book => (
-                <Book key={book.id} book={book} />
+                <SavedBook key={book.id} book={book} deleteThis={props.deleteThis}/>
             )) : null}
         </div>
         </CardContent>
