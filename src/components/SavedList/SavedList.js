@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import Book from '../Book';
+import React, { useEffect } from 'react';
 
 import DescriptionCard from './DescriptionCard';
 import SavedBooks from './SavedBooks';
@@ -7,7 +6,7 @@ import SavedBooks from './SavedBooks';
 import { connect } from 'react-redux';
 import { getUser, saveBook, deleteBook } from '../../redux/actions';
 
-const SavedList = ({getUser, isGetting, user}) => {
+const SavedList = ({getUser, isGetting, user, saveBook, isSaving, deleteBook, isDeletingBook}) => {
 
     //User
     useEffect( () => {
@@ -16,12 +15,23 @@ const SavedList = ({getUser, isGetting, user}) => {
     }, [getUser] );
 
     if(isGetting) {
-        console.log(isGetting, 'true')
+        console.log('isGetting', isGetting)
     }
 
     if(!isGetting){
-        console.log(user);
+        console.log('isGetting', isGetting, 'user', user);
     }
+
+    //Saving and Deleting
+
+    const saveThis = bookId => {
+        saveBook(bookId);
+    }
+
+    const deleteThis = bookId => {
+        deleteBook(bookId);
+    }
+
 
     return(
         <>
@@ -29,12 +39,12 @@ const SavedList = ({getUser, isGetting, user}) => {
         {
             user.descriptions.map( desc => 
                 (
-                <DescriptionCard key={desc.id} description={desc}/>
+                <DescriptionCard key={desc.id} description={desc} saveThis={saveThis}/>
             ))
         }
 
         <p> Saved Books</p>
-        <SavedBooks user={user} />
+        <SavedBooks user={user} deleteThis={deleteThis}/>
         </>
     )
 }
@@ -42,9 +52,10 @@ const SavedList = ({getUser, isGetting, user}) => {
 const mapStateToProps = state => {
     return {
         user: state.user,
+        isLoggedIn: state.isLoggedIn,
         isGetting: state.isGetting,
         isSaving: state.isSaving,
         isDeletingBook: state.isDeletingBook
     }
 }
-export default connect(mapStateToProps, {getUser})(SavedList);
+export default connect(mapStateToProps, {getUser, saveBook, deleteBook})(SavedList);

@@ -12,7 +12,7 @@ import { red } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-import Book from '../Book';
+import SavedBook from './SavedBook';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function DescriptionCard( props ) {
+export default function SavedBooks( props ) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -47,7 +47,8 @@ export default function DescriptionCard( props ) {
 
   //Functionality
 
-  console.log(props.user.savedBooks);
+  console.log('SavedBooks props', props)
+  console.log('SavedBooks props.user.savedBooks', props.user.savedBooks);
   const savedBooks= props.user.savedBooks;
 
   return (
@@ -82,7 +83,7 @@ export default function DescriptionCard( props ) {
         <div className = 'saved-book-list'>
         {savedBooks.length > 0 ? 
             savedBooks.map(book => (
-                <Book key={book.id} book={book} />
+                <SavedBook key={book.id} book={book} deleteThis={props.deleteThis}/>
             )) : null}
         </div>
         </CardContent>

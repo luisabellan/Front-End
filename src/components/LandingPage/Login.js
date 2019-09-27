@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
+//redux
+import { connect } from 'react-redux';
+import { logIn } from '../../redux/actions';
+//axios
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
 //Formik
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 
-const Login = ({ errors, touched, values, status, handleChange, handleSubmit }) => {    
+const Login = ({ errors, touched, values, status, handleChange, handleSubmit }, { dispatch }) => {    
     const [credentials, setCredentials] = useState({username:'', password:''});
-  
+    // const state = useSelector(state => state)
     useEffect(() => {
       if (status) {
           setCredentials([
@@ -15,7 +19,10 @@ const Login = ({ errors, touched, values, status, handleChange, handleSubmit }) 
               status
           ])
       }
+
   }, [status]);
+
+  console.log(logIn)
 
   return (
         <Form className= 'login-form' onSubmit={handleSubmit}>
@@ -39,8 +46,10 @@ const Login = ({ errors, touched, values, status, handleChange, handleSubmit }) 
             {
                 touched.password && errors.password && (<p>{errors.password}</p>)
             }            
-            <button>Log in</button>
+            <button type='submit' className='log-in-btn' >Log in</button>
+
         </Form>
+        
     );
 };//regular login form
     const FormikLogin = withFormik({
@@ -66,23 +75,29 @@ const Login = ({ errors, touched, values, status, handleChange, handleSubmit }) 
         [e.target.name]: e.target.value
         }
         );
-        console.log(values);
+
     },
   
     handleSubmit(values, { props }) {
-      
-      axiosWithAuth()
+        axiosWithAuth()
         .post('/login', values)
         .then(res => {
           localStorage.setItem('token', res.data.token);
-          console.log(res);
-          console.log(res.data.token);
-          console.log(props);
           props.history.push('/home');
+          console.log(props)
+          props.logIn();//dispatch action to update logged in state to true
+          
           
         })
         .catch(err => console.log(err.response));
     }
   })(Login)//Currying
 
-  export default FormikLogin;
+  const mapStateToProps = state => {
+
+    return {
+        state: state,
+    }
+
+}
+export default connect(mapStateToProps, {logIn })(FormikLogin);

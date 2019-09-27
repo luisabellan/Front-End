@@ -43,7 +43,8 @@ export default function DescriptionCard( props ) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
-  console.log(props.description);
+  console.log('Description card props', props);
+  console.log('Description card description', props.description);
   const description = props.description;
 
   const handleExpandClick = () => {
@@ -88,7 +89,7 @@ export default function DescriptionCard( props ) {
         <div className = 'desc-book-list'>
         {description.books.length > 0 ? 
             description.books.map(book => (
-                <Book key={book.id} book={book} />
+                <Book key={book.id} book={book} saveThis={props.saveThis} />
             )) : null}
         </div>
         </CardContent>

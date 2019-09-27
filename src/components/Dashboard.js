@@ -2,17 +2,14 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import '../style/dashboard.css';
 import { staticData, staticResults } from '../statics/staticResults';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Rating from '@material-ui/lab/Rating';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
 import SearchResults from './SearchResults';
-
-const initialSearchForm = { summary: '' };
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -37,7 +34,7 @@ const useStyles = makeStyles(theme => ({
 function Dashboard(props){
   const [ books, setBooks ] = useState([]);
   const [ popular, setPopular ] = useState(staticData);
-
+  
   const classes = useStyles();
 
   const findBooks = (form) => {
