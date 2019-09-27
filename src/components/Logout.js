@@ -1,15 +1,25 @@
 import React from 'react';
 
-const Logout = () => {
+class Logout extends React.Component  {
 
-    const handleLogout = () => {
+    // constructor(props) {
+    //     super(props)
+    //     this.state= {
+
+    //     }
+
+    // }
+
+    handleLogout = () => {
         localStorage.removeItem('token');
         window.location.reload();
-
-        //props.history.push('/')
+        this.props.history.push('/')
+        console.log(this.props.state)
     }
 
-    return(
-        <button onClick={handleLogout}>Logout</button>
-    )
+    render(){
+    return <button onClick={this.handleLogout}>Logout</button>
+    
+    }
 }
+export default Logout;

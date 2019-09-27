@@ -1,5 +1,4 @@
-import { SEARCHING_BOOKS, SEARCHED_BOOKS, SEARCH_FAIL, SET_IMAGES } from './actions';
-//User
+import { SEARCHING_BOOKS, SEARCHED_BOOKS, SEARCH_FAIL, SET_IMAGES, LOG_OUT, LOG_IN } from './actions';
 import { GETTING_USER, GOT_USER, GET_USER_FAIL } from './actions';
 //Save/ Delete Book
 import { SAVING_BOOK, SAVED_BOOK, SAVE_FAIL, DELETING_BOOK, DELETED_BOOK, DELETE_FAIL} from './actions';
@@ -15,6 +14,7 @@ const initialUserState = {
     // }
 
     //Alternative Data structure
+    isLoggedIn: false,
     isGetting: false,
     isSaving: false,
     isDeletingBook: false,
@@ -53,6 +53,7 @@ export const reducer = (state = initialUserState, action) => {
         case GOT_USER:
             return{
                 isGetting:false,
+                isLoggedIn: true,
                 ...state,
                 user: {
                     ...state.user,
@@ -171,6 +172,16 @@ export const reducer = (state = initialUserState, action) => {
             return {
                 ...state
             }
+        case LOG_IN:
+            return {
+                ...state, 
+                isLoggedIn: !false,
+            }
+        case LOG_OUT: 
+        return {
+            ...state, 
+            isLoggedIn: false,
+        }
         default:
             return state;
     }
