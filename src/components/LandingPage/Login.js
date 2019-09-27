@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
+//redux
 import { connect } from 'react-redux';
-
+import { logIn } from '../../redux/actions';
+//axios
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
 //Formik
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
-import { logIn } from '../../redux/actions';
 
-const Login = ({ errors, touched, values, status, handleChange, handleSubmit }) => {    
+const Login = ({ errors, touched, values, status, handleChange, handleSubmit }, { dispatch }) => {    
     const [credentials, setCredentials] = useState({username:'', password:''});
     // const state = useSelector(state => state)
     useEffect(() => {
@@ -45,7 +46,7 @@ const Login = ({ errors, touched, values, status, handleChange, handleSubmit }) 
             {
                 touched.password && errors.password && (<p>{errors.password}</p>)
             }            
-            <button className='log-in-btn' onClick={()=> { logIn()}}>Log in</button>
+            <button type='submit' className='log-in-btn' >Log in</button>
 
         </Form>
         
@@ -83,7 +84,8 @@ const Login = ({ errors, touched, values, status, handleChange, handleSubmit }) 
         .then(res => {
           localStorage.setItem('token', res.data.token);
           props.history.push('/home');
-          console.log(props.state)
+          console.log(props)
+          props.logIn();
           
           
         })
