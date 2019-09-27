@@ -7,7 +7,7 @@ import SavedBooks from './SavedBooks';
 import { connect } from 'react-redux';
 import { getUser, saveBook, deleteBook } from '../../redux/actions';
 
-const SavedList = ({getUser, isGetting, user}) => {
+const SavedList = ({getUser, isGetting, user, saveBook, isSaving, deleteBook, isDeletingBook}) => {
 
     //User
     useEffect( () => {
@@ -23,18 +23,29 @@ const SavedList = ({getUser, isGetting, user}) => {
         console.log(user);
     }
 
+    //Saving and Deleting
+
+    const saveThis = bookId => {
+        saveBook(bookId);
+    }
+
+    const deleteThis = bookId => {
+        deleteBook(bookId);
+    }
+
+
     return(
         <>
         <p>Saved Descriptions</p>
         {
             user.descriptions.map( desc => 
                 (
-                <DescriptionCard key={desc.id} description={desc}/>
+                <DescriptionCard key={desc.id} description={desc} saveThis={saveThis}/>
             ))
         }
 
         <p> Saved Books</p>
-        <SavedBooks user={user} />
+        <SavedBooks user={user} deleteThis={deleteThis}/>
         </>
     )
 }
@@ -47,4 +58,4 @@ const mapStateToProps = state => {
         isDeletingBook: state.isDeletingBook
     }
 }
-export default connect(mapStateToProps, {getUser})(SavedList);
+export default connect(mapStateToProps, {getUser, saveBook, deleteBook})(SavedList);
