@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Book from '../Book';
+import React, { useEffect } from 'react';
 
 import DescriptionCard from './DescriptionCard';
 import SavedBooks from './SavedBooks';
 
 import { connect } from 'react-redux';
-import { getUser, saveBook, deleteBook } from '../../redux/actions';
+import { getUser } from '../../redux/actions';
 
 const SavedList = ({getUser, isGetting, user}) => {
 
@@ -42,6 +41,7 @@ const SavedList = ({getUser, isGetting, user}) => {
 const mapStateToProps = state => {
     return {
         user: state.user,
+        isLoggedIn: state.isLoggedIn,
         isGetting: state.isGetting,
         isSaving: state.isSaving,
         isDeletingBook: state.isDeletingBook
