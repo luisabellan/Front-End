@@ -157,9 +157,11 @@ export const reducer = (state = initialUserState, action) => {
             return {
                 isSearching: false,
                 ...state,
-                user: [...state.user.descriptions], 
-                descriptions: [...state.user.descriptions, action.payload.description],
-                returnedBooks: action.payload.books
+                user: {
+                    ...state.user,
+                    descriptions: [...state.user.descriptions, action.payload],
+                },
+                    returnedBooks: action.payload.books
             }
         case SET_IMAGES:
             return {
