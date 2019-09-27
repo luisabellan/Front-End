@@ -8,7 +8,8 @@ export const instanceAxios = () => {
     return axios.create({
       baseURL: 'https://better-reads-bw.herokuapp.com/api/',
       headers: {
-        Authorization: token,
+        "Content-Type": "application/json",
+        "Authorization": token
       }
     });
   };
