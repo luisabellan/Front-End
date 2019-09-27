@@ -10,11 +10,6 @@ import book from '../assets/book.png';
 import '../style/header.css';
 
 const Header = props => {
-  const token = localStorage.getItem('token');
-
-  useEffect(() => {
-
-  }, [token])
 
   return (
   
