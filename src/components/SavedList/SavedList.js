@@ -4,7 +4,7 @@ import DescriptionCard from './DescriptionCard';
 import SavedBooks from './SavedBooks';
 
 import { connect } from 'react-redux';
-import { getUser } from '../../redux/actions';
+import { getUser, saveBook, deleteBook } from '../../redux/actions';
 
 const SavedList = ({getUser, isGetting, user, saveBook, isSaving, deleteBook, isDeletingBook}) => {
 
