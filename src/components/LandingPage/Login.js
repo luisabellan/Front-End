@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 
 //Formik
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
+import { logIn } from '../../redux/actions';
 
 const Login = ({ errors, touched, values, status, handleChange, handleSubmit }) => {    
     const [credentials, setCredentials] = useState({username:'', password:''});
-  
+    // const state = useSelector(state => state)
     useEffect(() => {
       if (status) {
           setCredentials([
@@ -15,7 +18,10 @@ const Login = ({ errors, touched, values, status, handleChange, handleSubmit }) 
               status
           ])
       }
+
   }, [status]);
+
+  console.log(logIn)
 
   return (
         <Form className= 'login-form' onSubmit={handleSubmit}>
@@ -39,8 +45,10 @@ const Login = ({ errors, touched, values, status, handleChange, handleSubmit }) 
             {
                 touched.password && errors.password && (<p>{errors.password}</p>)
             }            
-            <button>Log in</button>
+            <button className='log-in-btn' onClick={()=> { logIn()}}>Log in</button>
+
         </Form>
+        
     );
 };//regular login form
     const FormikLogin = withFormik({
@@ -66,23 +74,28 @@ const Login = ({ errors, touched, values, status, handleChange, handleSubmit }) 
         [e.target.name]: e.target.value
         }
         );
-        console.log(values);
+
     },
   
     handleSubmit(values, { props }) {
-      
-      axiosWithAuth()
+        axiosWithAuth()
         .post('/login', values)
         .then(res => {
           localStorage.setItem('token', res.data.token);
-          console.log(res);
-          console.log(res.data.token);
-          console.log(props);
           props.history.push('/home');
+          console.log(props.state)
+          
           
         })
         .catch(err => console.log(err.response));
     }
   })(Login)//Currying
 
-  export default FormikLogin;
+  const mapStateToProps = state => {
+
+    return {
+        state: state,
+    }
+
+}
+export default connect(mapStateToProps, {logIn })(FormikLogin);

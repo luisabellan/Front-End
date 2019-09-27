@@ -1,4 +1,5 @@
 import React from 'react';
+// import { useSelector, useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
@@ -18,6 +19,8 @@ import Dashboard from './components/Dashboard';
 import TopBooks from './components/TopBooks';
 
 function App() {
+  // const state = useSelector(state => state)
+
   return (
     <div className="App">
       <Header></Header>

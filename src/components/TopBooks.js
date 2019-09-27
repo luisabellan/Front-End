@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import '../style/topbooks.css';
-import { staticData, staticResults, moreStats } from '../statics/staticResults';
+import { moreStats } from '../statics/staticResults';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';

@@ -81,3 +81,14 @@ export const getUser = () => dispatch => {
             dispatch({ type: GET_USER_FAIL, payload: err })
         })
 }
+
+export const LOG_OUT = 'LOG_OUT';
+export const LOG_IN = 'LOG_IN';
+
+export const logOut = () => dispatch => {
+    dispatch({ type: LOG_OUT });
+}
+
+export const logIn = () => dispatch => {
+    dispatch({ type: LOG_IN });
+}
