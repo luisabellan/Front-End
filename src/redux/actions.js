@@ -35,8 +35,8 @@ export const SAVE_FAIL = 'SAVE_FAIL';
 
 export const saveBook = (bookId) => dispatch => {
     dispatch({ type: SAVING_BOOK, payload: bookId});
-    axios
-        .post('https://better-reads-bw.herokuapp.com/api/user/book', bookId)
+    instanceAxios()
+        .post('/user/book', bookId)
         .then( res => {
             dispatch({ type:SAVED_BOOK, payload:res.data});
         })
@@ -52,7 +52,7 @@ export const DELETE_FAIL = 'DELETE_FAIL';
 export const deleteBook = (bookId) => dispatch => {
     dispatch({ type: DELETING_BOOK, payload: bookId});
     instanceAxios()
-        .delete('https://better-reads-bw.herokuapp.com/api/user/book', bookId)
+        .delete(`/user/book/${bookId}`)
         .then( res => {
             dispatch({ type:DELETED_BOOK, payload:res.data});
         })

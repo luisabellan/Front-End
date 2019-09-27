@@ -45,6 +45,10 @@ const Book = (props) => {
     console.log('book', props.book)
     console.log(props);
 
+    const id = {"bookId": props.book.id}
+    console.log(id);
+    console.log(props.book.id);
+
     // if(book.ISBN === null){
     //   return book;
     // }else{
@@ -71,7 +75,7 @@ const Book = (props) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <IconButton aria-label="add to favorites" onClick={() => props.saveThis(props.book.id)}>
+                <IconButton aria-label="add to favorites" onClick={() => props.saveThis(id)}>
                     <FavoriteIcon />
                 </IconButton>
             </CardActions>
