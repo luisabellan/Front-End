@@ -2,11 +2,14 @@ import React, { useEffect } from 'react';
 
 import DescriptionCard from './DescriptionCard';
 import SavedBooks from './SavedBooks';
+import DescriptionList from './DescriptionList';
+
+import './SavedList.css';
 
 import { connect } from 'react-redux';
-import { getUser, saveBook, deleteBook } from '../../redux/actions';
+import { getUser, saveBook, deleteBook, deleteSearch} from '../../redux/actions';
 
-const SavedList = ({getUser, isGetting, user, saveBook, isSaving, deleteBook, isDeletingBook}) => {
+const SavedLists = ({getUser, isGetting, user, saveBook, deleteBook, deleteSearch}) => {
 
     //User
     useEffect( () => {
@@ -32,20 +35,26 @@ const SavedList = ({getUser, isGetting, user, saveBook, isSaving, deleteBook, is
         deleteBook(bookId);
     }
 
+    const deleteThisToo = searchId => {
+        deleteSearch(searchId);
+    }
+
+    //Render
+    console.log(window.location.pathname);
+    const address = `${window.location.pathname}`;
+    console.log(address);
+
+
 
     return(
-        <>
-        <p>Saved Descriptions</p>
+        <div className="display-saved">
         {
-            user.descriptions.map( desc => 
-                (
-                <DescriptionCard key={desc.id} description={desc} saveThis={saveThis}/>
-            ))
+            address == '/saved-searches'? 
+            <DescriptionList user={user} saveBook={saveThis} deleteSearch={deleteThisToo}/>
+            :
+            <SavedBooks user={user} deleteBook={deleteThis}/>
         }
-
-        <p> Saved Books</p>
-        <SavedBooks user={user} deleteThis={deleteThis}/>
-        </>
+        </div>
     )
 }
 
@@ -58,4 +67,4 @@ const mapStateToProps = state => {
         isDeletingBook: state.isDeletingBook
     }
 }
-export default connect(mapStateToProps, {getUser, saveBook, deleteBook})(SavedList);
+export default connect(mapStateToProps, {getUser, saveBook, deleteBook, deleteSearch })(SavedLists);

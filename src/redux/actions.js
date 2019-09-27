@@ -42,7 +42,7 @@ export const deleteSearch = (searchId) => dispatch => {
         .then( res => {
             console.log('delete search res', res);
             console.log('delete search res.data', res.data)
-            dispatch({ type:DELETED_SEARCH, payload:res.data});
+            dispatch({ type:DELETED_SEARCH, payload:res.data.descriptions});
         })
         .catch( err => {
             console.log('delete search err', err);

@@ -20,8 +20,7 @@ const useStyles = makeStyles({
     card: {
       maxWidth: 275,
       margin: '8px',
-      borderRadius: '0',
-      boxShadow: '0.5px 2px 7px #282c34',
+      padding: '8px',
       backgroundColor:'white',
     },
     title: {

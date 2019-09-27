@@ -112,12 +112,6 @@ export const reducer = (state = initialUserState, action) => {
                     ...state.user,
                     savedBooks:action.payload
                 }
-                /* payload = books
-                user:{
-                    ...state.user,
-                    state.savedBooks.filter( book => book.id !== action.payload)
-                }
-                */
             } 
             
         case DELETE_FAIL:

@@ -50,7 +50,7 @@ function TopBooks(props){
   }, [popular]);
 
   return(
-    <div className="dashboard">  
+    <div className="topbooks">  
       <h4>Top 6 Books on Better Reads 🔥</h4>
       <div className='cards'>
       {
