@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 //redux
 import { connect } from 'react-redux';
-import { setImages } from '../redux/actions';
+import { setImages } from '../../redux/actions';
 
 //Material UI
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import IconButton from '@material-ui/core/IconButton';
 import Rating from '@material-ui/lab/Rating';
+import { red } from '@material-ui/core/colors';
 
 
 
@@ -29,11 +30,15 @@ const useStyles = makeStyles({
     pos: {
       marginBottom: 12,
     },
+
+    icon: {
+      color: red[500],
+    },
 });
 
 
-const Book = (props) => {
-  // const [ image, setImage ] = ('');
+const SavedBook = (props) => {
+  const [ image, setImage ] = ('');
 
    
 
@@ -42,9 +47,12 @@ const Book = (props) => {
 
     //props later
     const book = props.book;
-
     console.log('book', props.book)
     console.log(props);
+
+    const id = {"bookId": props.book.id}
+    console.log(id);
+    console.log(props.book.id);
 
     // if(book.ISBN === null){
     //   return book;
@@ -72,7 +80,7 @@ const Book = (props) => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <IconButton aria-label="add to favorites" onClick={() => props.saveThis(props.book.id)}>
+                <IconButton className={classes.icon} aria-label="add to favorites" onClick={() => props.deleteThis(id)} >
                     <FavoriteIcon />
                 </IconButton>
             </CardActions>
@@ -86,4 +94,4 @@ const mapStateToProps = state => {
       state: state,
   }
 }
-export default connect(mapStateToProps, { setImages })(Book);
+export default connect(mapStateToProps, { setImages })(SavedBook);
