@@ -17,16 +17,13 @@ const useStyles = makeStyles(theme => ({
     margin: '8px',
     borderRadius: '10px',
     width: '33%',
-    height: '100%'
+    height: '70%'
   },
   details: {
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
-    height: '80%'
-  },
-  content: {
-    flex: '1 0 auto',
+    height: '30%'
   },
   cover: {
     width: '70%',
@@ -50,13 +47,10 @@ function Dashboard(props){
   }, [books, popular]);
 
   return(
-    <div className="dashboard">  
+    <div className="dashboard"> 
+      <SearchResults onSubmit={findBooks} /> 
       <div className="popular">
-        {
-          books.length > 0 ?
-            (<h4>Your Results 🔥</h4>) :
-            (<h4>Popular Demand 🔥</h4>)
-        }
+        
         <div className="book-cards">
           {
             books.length > 0 ?
@@ -116,7 +110,6 @@ function Dashboard(props){
           }
         </div>
       </div>
-      {<SearchResults onSubmit={findBooks} />}
     </div>
   );
 }

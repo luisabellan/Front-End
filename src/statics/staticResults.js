@@ -11,7 +11,7 @@ const staticData = [
   },
   {
     id: uuid(),
-    title: 'Harry Potter & The Goblet of Fire',
+    title: 'The Goblet of Fire',
     author: 'JK Rowling',
     ISBN: '56356352662562',
     rating: 4.6,
@@ -46,7 +46,7 @@ const staticResults = [
   },
   {
     id: uuid(),
-    title: 'Harry Potter & The Goblet of Fire',
+    title: 'The Goblet of Fire',
     author: 'JK Rowling',
     ISBN: '56356352662562',
     rating: 4.6,
@@ -66,7 +66,7 @@ const moreStats = [
   },
   {
     id: uuid(),
-    title: 'Harry Potter & The Goblet of Fire',
+    title: 'The Goblet of Fire',
     author: 'JK Rowling',
     ISBN: '56356352662562',
     rating: 4.6,

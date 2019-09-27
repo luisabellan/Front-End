@@ -9,7 +9,8 @@
         border-radius: 16px;
         opacity: 0.9;
         box-shadow: 0.5px 2px 7px #282c34;
-        transform: translateY(15%)
+        transform: translateY(15%);
+        margin-top: 60px;
       } 
   
   form > input {
