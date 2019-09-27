@@ -16,11 +16,11 @@ const SavedList = ({getUser, isGetting, user, saveBook, isSaving, deleteBook, is
     }, [getUser] );
 
     if(isGetting) {
-        console.log(isGetting, 'true')
+        console.log('isGetting', isGetting)
     }
 
     if(!isGetting){
-        console.log(user);
+        console.log('isGetting', isGetting, 'user', user);
     }
 
     //Saving and Deleting

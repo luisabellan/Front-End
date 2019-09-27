@@ -42,12 +42,11 @@ const Book = (props) => {
 
     //props later
     const book = props.book;
-    console.log('book', props.book)
-    console.log(props);
+    console.log('Book props', props)
+    console.log('Book props.book', props.book)
 
     const id = {"bookId": props.book.id}
-    console.log(id);
-    console.log(props.book.id);
+    console.log('Book props.book.id', props.book.id, 'id', id);
 
     // if(book.ISBN === null){
     //   return book;

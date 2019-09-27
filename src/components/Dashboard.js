@@ -119,7 +119,7 @@ function Dashboard(props){
           }
         </div>
       </div>
-      <SearchResults onSubmit={findBooks} />
+      {/* <SearchResults onSubmit={findBooks} /> */}
     </div>
   );
 }

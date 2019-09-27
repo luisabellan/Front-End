@@ -43,7 +43,8 @@ export default function DescriptionCard( props ) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
-  console.log(props);
+  console.log('Description card props', props);
+  console.log('Description card description', props.description);
   const description = props.description;
 
   const handleExpandClick = () => {

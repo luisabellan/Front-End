@@ -1,5 +1,10 @@
 import { SEARCHING_BOOKS, SEARCHED_BOOKS, SEARCH_FAIL, SET_IMAGES } from './actions';
+//User
 import { GETTING_USER, GOT_USER, GET_USER_FAIL } from './actions';
+//Save/ Delete Book
+import { SAVING_BOOK, SAVED_BOOK, SAVE_FAIL, DELETING_BOOK, DELETED_BOOK, DELETE_FAIL} from './actions';
+//Delete Search
+import { DELETING_SEARCH, DELETED_SEARCH, DELETE_S_FAIL } from './actions';
 
 const initialUserState = {
     // user:{
@@ -14,6 +19,7 @@ const initialUserState = {
     isSaving: false,
     isDeletingBook: false,
     isSearching: false,
+    isDeletingSearch: false,
     returnedBooks: [],
     img_URLs: [],
     user:{
@@ -23,17 +29,15 @@ const initialUserState = {
             {description:'', id:'', books:[]},
         ],
         savedBooks:[
-            {bookId:null,
-            descriptionId:'',
-            title:'',
-            author:'',
-            img_URL:'',
-            isbn:null,
-            rating:'',
-            read:false,
-            saved:true
-            }
-        ]
+            {
+            title: "",
+            authors: "",
+            id: null,
+            rating: null,
+            ISBN: "",
+            read: false
+        }
+    ]
     }
 }
 
@@ -59,7 +63,88 @@ export const reducer = (state = initialUserState, action) => {
                 }
             }
         
+        case GET_USER_FAIL:
+            return(
+                console.log(action.payload)
+            )
+        
+        //Saving Book
+        case SAVING_BOOK:
+            return{
+                isSaving: true,
+                ...state
+            } 
+            
+        case SAVED_BOOK:
+            return{
+                isSaving:false,
+                ...state,
+                user: {
+                    ...state.user,
+                    savedBooks: action.payload
+                }
+                /* payload = books
+                user:{
+                    ...state.user,
+                    savedBooks:action.payload
+                }
+                */
+            } 
+            
+        case SAVE_FAIL:
+            return(
+                console.log(action.payload)
+            )
 
+        //Deleting Book
+        case DELETING_BOOK:
+            return{
+                isDeletingBook: true,
+                ...state
+            } 
+            
+        case DELETED_BOOK:
+            return{
+                isDeletingBook: false,
+                ...state,
+                user: {
+                    ...state.user,
+                    savedBooks:action.payload
+                }
+                /* payload = books
+                user:{
+                    ...state.user,
+                    state.savedBooks.filter( book => book.id !== action.payload)
+                }
+                */
+            } 
+            
+        case DELETE_FAIL:
+            return(
+                console.log(action.payload)
+            )
+
+        //Deleting Search
+        case DELETING_SEARCH:
+            return{
+                    isDeletingSearch:true,
+                    ...state
+                } 
+                
+        case DELETED_SEARCH:
+            return{
+                isDeletingSearch:false,
+                ...state,
+                user:{
+                    ...state.user,
+                    descriptions: action.payload
+                }
+            } 
+            
+        case DELETE_S_FAIL:
+            return(
+                console.log(action.payload)
+            )
 
         //Search
         case SEARCHING_BOOKS:
